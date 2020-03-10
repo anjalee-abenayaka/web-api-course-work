@@ -1,0 +1,23 @@
+{
+  "name": "web-api-server",
+  "version": "1.0.0",
+  "description": "Web API server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "backend": "nodemon index.js"
+  },
+  "author": "Anjalee Abenayaka",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
