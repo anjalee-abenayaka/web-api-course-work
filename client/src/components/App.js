@@ -1,13 +1,17 @@
 import React from 'react';
 import { Route, Switch} from "react-router-dom";
 import About from "./about";
+import Login from "./RegisterLogin";
 
 function App() {
   return (
     <div>
-      <switch>
+      <Switch>
+        
         <Route path="/about" component={About}/>
-      </switch>
+        <Route path="/login" component={Login}/>
+        
+      </Switch>
     </div>
   );
 }
