@@ -11,6 +11,7 @@ import Register from "./RegisterLogin/register";
 //import NavBar from "./views/NavBar/NavBar";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
+import UploadProductPage from './views/UploadProductPage/UploadProductPage'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
        <Switch>
          <Route exact path="/login" component={Auth(Login, false)} />
          <Route exact path="/register" component={Auth(Register, false)} />
+         <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
        </Switch>
      </div>
      <Footer />
