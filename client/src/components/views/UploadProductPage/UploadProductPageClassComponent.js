@@ -107,7 +107,7 @@ export class UploadProductPage extends brand {
                     value={this.state.description}
                 />
                 <br /><br />
-                <label>Price($)</label>
+                <label>Price(Rs)</label>
                 <Input
                     type="number"
                     onChange={this.handleChangePrice}
