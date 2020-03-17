@@ -34,7 +34,7 @@ function LandingPage() {
     }, [])
 
     const getProducts = (variables) => {
-        Axios.post('/api/product/getProducts', variables)
+        Axios.get('/api/product/getProducts', variables)
             .then(response => {
                 if (response.data.success) {
                     if (variables.loadMore) {
