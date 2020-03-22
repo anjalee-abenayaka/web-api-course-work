@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Dropzone from 'react-dropzone';
 //import { Icon } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+
 import Axios from 'axios';
 function FileUpload(props) {
 
@@ -53,6 +55,7 @@ function FileUpload(props) {
                         {...getRootProps()}
                     >
                         <input {...getInputProps()} />
+                        <PlusOutlined/>
                         
 
                     </div>
