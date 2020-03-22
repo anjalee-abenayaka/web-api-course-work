@@ -56,7 +56,14 @@ export class UploadProductPage extends brand {
             return alert('Please first fill all the fields')
         }
 
-      
+        const variables = {
+            writer: this.props.user.userData._id,
+            title: this.state.title,
+            description: this.state.description,
+            images: this.state.images,
+            brand: this.state.brand,
+            price: this.state.price
+        }
 
         axios.post('/api/product/uploadProduct', variables)
             .then(response => {
