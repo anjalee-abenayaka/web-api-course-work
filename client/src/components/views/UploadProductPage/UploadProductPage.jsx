@@ -63,15 +63,7 @@ function UploadProductPage(props) {
             continents: BrandValue,
         }
 
-        Axios.post('/api/product/uploadProduct', variables)
-            .then(response => {
-                if (response.data.success) {
-                    alert('Product Successfully Uploaded')
-                    props.history.push('/')
-                } else {
-                    alert('Failed to upload Product')
-                }
-            })
+      
 
     }
 
