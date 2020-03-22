@@ -13,7 +13,7 @@ function LandingPage() {
 
     const [Products, setProducts] = useState([])
     const [Skip, setSkip] = useState(0)
-    const [Limit, setLimit] = useState(8)
+    const [Limit, setLimit] = useState(9)
     const [PostSize, setPostSize] = useState()
     const [SearchTerms, setSearchTerms] = useState("")
 
@@ -34,11 +34,12 @@ function LandingPage() {
     }, [])
 
     const getProducts = (variables) => {
-        Axios.get('/api/product/getProducts', variables)
+        Axios.post('/api/product/getProducts', variables)
             .then(response => {
                 if (response.data.success) {
                     if (variables.loadMore) {
-                        setProducts([...Products, ...response.data.products])
+                        setProducts([...Products, ...response.data.products]) //..Product means load previous data after clikc on load more
+                        
                     } else {
                         setProducts(response.data.products)
                     }
