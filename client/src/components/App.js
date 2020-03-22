@@ -4,8 +4,10 @@ import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
 import About from "./about";
-import Login from "./RegisterLogin";
-import Register from "./RegisterLogin/register";
+//import Login from "./RegisterLogin";
+//import Register from "./RegisterLogin/register";
+import LoginPage from "./views/LoginPage/LoginPage.js";
+import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 //import Footer from "./views/Footer/Footer"
 //import React, { Suspense } from 'react';
 //import NavBar from "./views/NavBar/NavBar";
@@ -22,8 +24,8 @@ function App() {
      <div style={{ paddingTop: '75px', minHeight: 'calc(100vh - 80px)' }}>
        <Switch>
        <Route exact path="/" component={Auth(LandingPage, null)} />
-         <Route exact path="/login" component={Auth(Login, false)} />
-         <Route exact path="/register" component={Auth(Register, false)} />
+         <Route exact path="/login" component={Auth(LoginPage, false)} />
+         <Route exact path="/register" component={Auth(RegisterPage, false)} />
          <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
        </Switch>
      </div>

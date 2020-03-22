@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import  { connect } from 'react-redux'
 //import { response } from 'express';
 import { loginUser } from '../../actions/user_actions'
@@ -19,7 +19,6 @@ export  class RegisterLogin extends Component {
     }
 submitForm = event => {
     event.preventDefault();
-
     let dataToSubmit = {
         email: this.state.email,
         password: this.state.password
@@ -38,7 +37,6 @@ submitForm = event => {
                 })
             }
         })
-
     } else {
         this.setState({
             errors: this.state.errors.concat('Email and Password required')
@@ -129,4 +127,4 @@ function mapStateToProps( state ){
     }
 }
 
-export default connect(mapStateToProps)(RegisterLogin);
+export default connect(mapStateToProps)(RegisterLogin);*/

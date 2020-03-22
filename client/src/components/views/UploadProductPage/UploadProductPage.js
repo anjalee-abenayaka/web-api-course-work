@@ -24,7 +24,6 @@ function UploadProductPage(props) {
     const [DescriptionValue, setDescriptionValue] = useState("")
     const [PriceValue, setPriceValue] = useState(0)
     const [BrandValue, setBrandValue] = useState(1)
-
     const [Images, setImages] = useState([])
 
     const onTitleChange = (event) => {
@@ -81,14 +80,10 @@ function UploadProductPage(props) {
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                 <Title level={2}> Upload Product</Title>
             </div>
-
-
-            <Form onSubmit={onSubmit} >
-
-                {/* DropZone */}
+             <Form onSubmit={onSubmit} >
+                   {/* DropZone */}
                 <FileUpload refreshFunction={updateImages} />
-
-                <br />
+               <br />
                 <br />
                 <label>Title</label>
                 <Input
@@ -118,15 +113,12 @@ function UploadProductPage(props) {
                 </select>
                 <br />
                 <br />
-
-                <Button
+               <Button
                     onClick={onSubmit}
                 >
                     Submit
                 </Button>
-
             </Form>
-
         </div>
     )
 }

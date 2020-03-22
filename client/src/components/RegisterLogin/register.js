@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import  { connect } from 'react-redux'
 import { registerUser } from '../../actions/user_actions';
 //import { response } from 'express';
@@ -209,4 +209,4 @@ export class Register extends Component {
     }
 }
 
-export default connect()(Register);
+export default connect()(Register);*/
