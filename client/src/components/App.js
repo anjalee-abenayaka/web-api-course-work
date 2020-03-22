@@ -6,15 +6,15 @@ import Auth from "../hoc/auth";
 import About from "./about";
 //import Login from "./RegisterLogin";
 //import Register from "./RegisterLogin/register";
-import LoginPage from "./views/LoginPage/LoginPage.js";
-import RegisterPage from "./views/RegisterPage/RegisterPage.js";
+import LoginPage from "./views/LoginPage/LoginPage";
+import RegisterPage from "./views/RegisterPage/RegisterPage";
 //import Footer from "./views/Footer/Footer"
 //import React, { Suspense } from 'react';
 //import NavBar from "./views/NavBar/NavBar";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import UploadProductPage from './views/UploadProductPage/UploadProductPage'
-import LandingPage from "./views/LandingPage/LandingPage.js";
+import LandingPage from "./views/LandingPage/LandingPage";
 
 function App() {
   return (
