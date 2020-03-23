@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, Button, Form, message, Input, Icon, Alert } from 'antd';
+import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import FileUpload from '../../utils/FileUpload'
 import Axios from 'axios';
 
@@ -55,21 +55,21 @@ function UploadProductPage(props) {
         }
 
         const variables = {
-            writer: props.user.userData._id,
+           // writer: props.user.userData._id,
             title: TitleValue,
             description: DescriptionValue,
             price: PriceValue,
-            image: Images,
-            brand: BrandValue
+            images: Images,
+            continents: BrandValue,
         }
 
         Axios.post('/api/product/uploadProduct', variables)
             .then(response => {
                 if (response.data.success) {
-                    message.success("Product Successfully Uploaded", 1.5, onclose)
+                    alert('Product Successfully Uploaded')
                     props.history.push('/')
                 } else {
-                   message.error("Failed to upload Product", 1.5, onclose)
+                    alert('Failed to upload Product')
                 }
             })
 
