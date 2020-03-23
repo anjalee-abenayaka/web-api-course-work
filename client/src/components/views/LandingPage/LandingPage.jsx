@@ -31,11 +31,29 @@ function LandingPage() {
         }
 
         getProducts(variables)
+        searchProduct(variables)//new
 
     }, [])
 
     const getProducts = (variables) => {
-        Axios.post('/api/product/getProducts', variables)
+        Axios.get('/api/product/getProducts', variables)
+            .then(response => {
+                if (response.data.success) {
+                    if (variables.loadMore) {
+                        setProducts([...Products, ...response.data.products]) //..Product means load previous data after clikc on load more
+                        
+                    } else {
+                        setProducts(response.data.products)
+                    }
+                    setPostSize(response.data.postSize)
+                } else {
+                    alert('Failed to fectch product datas')
+                }
+            })
+    }
+
+    const searchProduct = (variables) => {//new
+        Axios.post('/api/product/searchProduct', variables)
             .then(response => {
                 if (response.data.success) {
                     if (variables.loadMore) {
@@ -60,7 +78,7 @@ function LandingPage() {
             loadMore: true
 
         }
-        getProducts(variables)
+        searchProduct(variables)
         setSkip(skip)
     }
 
@@ -94,7 +112,7 @@ function LandingPage() {
             filters: filters
 
         }
-        getProducts(variables)
+        searchProduct(variables)
         setSkip(0)
 
     }
@@ -143,7 +161,7 @@ function LandingPage() {
         setSkip(0)
         setSearchTerms(newSearchTerm)
 
-        getProducts(variables)
+        searchProduct(variables)
     }
 
 

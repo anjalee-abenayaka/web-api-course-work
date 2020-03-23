@@ -27,10 +27,13 @@ app.get("/api/users/auth", auth, (req,res) =>{
     res.status(200).json({
         _id:req._id,
         isAuth: true,
+      //  isAdmin: req.user.role === 0 ? false : true, //new
         email:req.user.email, 
         name: req.user.name,
         lastname:req.user.lastname,
-        role: req.user.role
+        role: req.user.role,
+        cart: req.user.cart,//new
+        history: req.user.history//new
 
     })
   
@@ -86,8 +89,47 @@ app.get("/api/users/logout", auth, (req,res) =>{
     })
 })
 
+app.get('/api/users/addToCart', auth, (req, res) => {
+    User.findOne({ _id: req.user._id }, (err, userInfo) => {
+        let duplicate = false;
+        console.log(userInfo)
+        userInfo.cart.forEach((item) => {
+            if (item.id == req.query.productId) {
+                duplicate = true;
+            }    })
+        if (duplicate) {
+            User.findOneAndUpdate(
+                { _id: req.user._id, "cart.id": req.query.productId },
+                { $inc: { "cart.$.quantity": 1 } },
+                { new: true },
+                () => {
+                    if (err) return res.json({ success: false, err });
+                    res.status(200).json(userInfo.cart)
+                }      )
+        } else {
+            User.findOneAndUpdate(
+                { _id: req.user._id },
+                {
+                    $push: {
+                        cart: {
+                            id: req.query.productId,
+                            quantity: 1,
+                            date: Date.now()
+                        }  }    },
+                { new: true },
+                (err, userInfo) => {
+                    if (err) return res.json({ success: false, err });
+                    res.status(200).json(userInfo.cart)
+                }
+            )
+        }
+    })
+});
+
+
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {
   console.log(`Server Running at ${port}`)
 });
+
