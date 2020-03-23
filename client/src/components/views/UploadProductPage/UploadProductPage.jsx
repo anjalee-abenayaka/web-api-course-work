@@ -59,7 +59,7 @@ function UploadProductPage(props) {
             title: TitleValue,
             description: DescriptionValue,
             price: PriceValue,
-            images: Images,
+            image: Images,
             brand: BrandValue,
         }
 
