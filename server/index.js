@@ -89,6 +89,7 @@ app.get("/api/users/logout", auth, (req,res) =>{
     })
 })
 
+//add to cart
 app.get('/api/users/addToCart', auth, (req, res) => {
     User.findOne({ _id: req.user._id }, (err, userInfo) => {
         let duplicate = false;
