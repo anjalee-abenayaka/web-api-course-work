@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { getCartItems } from '../../../actions/user_actions';
 import UserCartBlock from './sections/UserCartBlock';
+import { Result,Empty } from 'antd';
 
 function CartPage(props){
     const dispatch = useDispatch();
@@ -24,7 +25,26 @@ function CartPage(props){
         <h5>My Cart</h5>
         <div>
 
-            <UserCartBlock/>
+            <UserCartBlock
+            products={props.user.cartDetail}
+            />
+            
+                    <div style={{ marginTop: '3rem' }}>
+                        <h5>Total amount: Rs </h5>
+                    </div>
+                    <Result
+                            status="success"
+                            title="Successfully Purchased Items"
+                        /> :
+                        <div style={{
+                            width: '100%', display: 'flex', flexDirection: 'column',
+                            justifyContent: 'center'
+                        }}>
+                            <br />
+                            <Empty description={false} />
+                            <p>No Items In the Cart</p>
+
+                        </div>
             </div>
             </div>
 
