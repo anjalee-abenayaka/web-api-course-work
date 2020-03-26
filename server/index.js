@@ -22,7 +22,7 @@ app.use('/api/product', require('./routes/product'));
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
-
+//test
 app.get("/api/users/auth", auth, (req,res) =>{
     res.status(200).json({
         _id:req._id,
