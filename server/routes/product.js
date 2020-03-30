@@ -97,8 +97,7 @@ router.get("/getProducts", (req, res) => {
 
 });
 
-router.post("/searchProduct", (req, res) => {//new
-
+router.post("/searchProduct", (req, res) => {
     let order = req.body.order ? req.body.order : "desc";
     let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
     let limit = req.body.limit ? parseInt(req.body.limit) : 100;

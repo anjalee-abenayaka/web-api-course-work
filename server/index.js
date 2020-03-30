@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { User } = require('./models/user');
+const { Product } = require('./models/Product');
 const { auth } = require('./middleware/auth');
 const config = require('./config/key')
 
@@ -22,12 +23,12 @@ app.use('/api/product', require('./routes/product'));
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
-
+//test
 app.get("/api/users/auth", auth, (req,res) =>{
     res.status(200).json({
         _id:req._id,
         isAuth: true,
-      //  isAdmin: req.user.role === 0 ? false : true, //new
+        isAdmin: req.user.role === 0 ? false : true, //new
         email:req.user.email, 
         name: req.user.name,
         lastname:req.user.lastname,
@@ -88,7 +89,12 @@ app.get("/api/users/logout", auth, (req,res) =>{
         })
     })
 })
+<<<<<<< HEAD
 //test
+=======
+
+//add to cart
+>>>>>>> 7c002b1258718247c8159734447d72060247e207
 app.get('/api/users/addToCart', auth, (req, res) => {
     User.findOne({ _id: req.user._id }, (err, userInfo) => {
         let duplicate = false;
@@ -125,6 +131,53 @@ app.get('/api/users/addToCart', auth, (req, res) => {
         }
     })
 });
+
+//remove item from the cart
+app.get('/api/users/removeFromCart', auth, (req, res) => {
+    User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+            "$pull":
+                { "cart": { "id": req.query._id } }
+        },
+        { new: true },
+        (err, userInfo) => {
+            let cart = userInfo.cart;
+            let array = cart.map(item => {
+                return item.id
+            })
+            Product.find({ '_id': { $in: array } })
+                .populate('writer')
+                .exec((err, cartDetail) => {
+                    return res.status(200).json({
+                        cartDetail,
+                        cart
+                    })
+                })
+        }
+    )
+})
+
+app.get('/userCartInfo', auth, (req, res) => {
+    User.findOne(
+        { _id: req.user._id },
+        (err, userInfo) => {
+            let cart = userInfo.cart;
+            let array = cart.map(item => {
+                return item.id
+            })
+
+
+            Product.find({ '_id': { $in: array } })
+                .populate('writer')
+                .exec((err, cartDetail) => {
+                    if (err) return res.status(400).send(err);
+                    return res.status(200).json({ success: true, cartDetail, cart })
+                })
+
+        }
+    )
+})
 
 
 const port = process.env.PORT || 5000

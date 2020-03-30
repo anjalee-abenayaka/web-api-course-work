@@ -12,9 +12,11 @@ function RightMenu(props) {
 
   const logoutHandler = () => {
     axios.get(`/api/users/logout`).then(response => {
-      if (response.status === 200) {
+     if (response.status === 200){
+      
+     // if (user.userData && !user.userData.isAuth) {
         props.history.push("/login");
-      } else {
+      }else {
         alert('Log Out Failed')
       }
     });
@@ -46,7 +48,7 @@ function RightMenu(props) {
         </Menu.Item>
 
         <Menu.Item key="cart" style={{ paddingTop: 12}}>
-          <Badge count={1}>
+          <Badge count={user.userData && user.userData.cart.length}>
             <a href="/user/cart" style={{ marginRight: -22 , color:'#667777'}}>
             <ShoppingCartOutlined style={{ fontSize: 28, marginBottom:1 }}/>
             </a>
