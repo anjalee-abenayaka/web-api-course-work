@@ -5,7 +5,8 @@ import {
     AUTH_USER,
     ADD_TO_CART_USER,
     GET_CART_ITEMS_USER,
-    REMOVE_CART_ITEM_USER
+    REMOVE_CART_ITEM_USER,
+    ON_SUCCESS_BUY_USER
    
 } from './types';
 
@@ -90,5 +91,11 @@ export function removeCartItem(id) {
     return {
         type: REMOVE_CART_ITEM_USER,
         payload: request
+    }
+}
+export function onSuccessBuy(data) {
+    return {
+        type: ON_SUCCESS_BUY_USER,
+        payload:data
     }
 }

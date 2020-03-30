@@ -7,23 +7,23 @@ const price = [
     },
     {
         "_id": 1,
-        "name": "Rs 0 to Rs10000",
-        "array": [0, 10000]
+        "name": "$0 to $79",
+        "array": [0, 79]
     },
     {
         "_id": 2,
-        "name": "Rs 11000 to Rs20000",
-        "array": [11000, 20000]
+        "name": "$80 to $199",
+        "array": [80, 199]
     },
     {
         "_id": 3,
-        "name": "Rs 21000 to Rs30000",
-        "array": [21000, 30000]
+        "name": "$120 to $179",
+        "array": [120, 179]
     },
     {
         "_id": 4,
-        "name": "More than Rs30000",
-        "array": [30000, 1500000]
+        "name": "More than $180",
+        "array": [180, 1500000]
     }
 ]
 
