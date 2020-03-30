@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Dropzone from 'react-dropzone';
-//import { Icon } from 'antd';
+import { Icon } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 import Axios from 'axios';
@@ -10,7 +10,8 @@ function FileUpload(props) {
 
     const onDrop = (files) => {
 
-        let formData = new FormData();
+        let formData
+         = new FormData();
         const config = {
             header: { 'content-type': 'multipart/form-data' }
         }
