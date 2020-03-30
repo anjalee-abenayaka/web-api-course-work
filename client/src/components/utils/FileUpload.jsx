@@ -46,7 +46,7 @@ function FileUpload(props) {
             <Dropzone
                 onDrop={onDrop}
                 multiple={false}
-                maxSize={800000000}
+                maxSize={980000000000000000}
             >
                 {({ getRootProps, getInputProps }) => (
                     <div style={{
