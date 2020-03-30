@@ -112,9 +112,7 @@ function UploadProductPage(props) {
                 </select>
                 <br />
                 <br />
-               <Button
-                    onClick={onSubmit}
-                >
+               <Button onClick={onSubmit} type="primary" >
                     Submit
                 </Button>
             </Form>

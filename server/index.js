@@ -251,6 +251,16 @@ app.post('/api/users/successBuy', auth, (req, res) => {
     )
 })
 
+app.get('/api/users/getHistory', auth, (req, res) => {
+    User.findOne(
+        { _id: req.user._id },
+        (err, doc) => {
+            let history = doc.history;
+            if (err) return res.status(400).send(err)
+            return res.status(200).json({ success: true, history })
+        }
+    )
+})
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {

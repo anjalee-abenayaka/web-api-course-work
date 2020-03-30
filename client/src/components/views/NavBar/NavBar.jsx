@@ -8,7 +8,7 @@ function NavBar() {
   const [visible, setVisible] = useState(false)
 
   const showDrawer = () => {
-    setVisible(true)
+    setVisible(false)
   };
 
   const onClose = () => {
