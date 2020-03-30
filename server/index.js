@@ -89,12 +89,9 @@ app.get("/api/users/logout", auth, (req,res) =>{
         })
     })
 })
-<<<<<<< HEAD
 //test
-=======
 
 //add to cart
->>>>>>> 7c002b1258718247c8159734447d72060247e207
 app.get('/api/users/addToCart', auth, (req, res) => {
     User.findOne({ _id: req.user._id }, (err, userInfo) => {
         let duplicate = false;
