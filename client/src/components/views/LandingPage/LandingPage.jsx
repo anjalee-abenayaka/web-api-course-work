@@ -90,7 +90,7 @@ function LandingPage() {
             <Card
                 hoverable={true}
                 cover={<a href={`/product/${product._id}`} > <ImageSlider images={product.images} /></a>}
-                style={{ backgroundColor: '#d9d9d9' }}
+                style={{ backgroundColor: '#e6f7ff' }}
             >
                 
                 <Meta

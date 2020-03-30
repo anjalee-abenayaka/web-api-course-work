@@ -6,7 +6,7 @@ import FileUpload from '../../utils/FileUpload';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const brand = [
+const Brands = [
     { key: 1, value: "Samsung" },
     { key: 2, value: "Huawei" },
     { key: 3, value: "Oppo" },
@@ -39,7 +39,7 @@ export class UploadProductPage extends brand {
         this.setState({ description: event.currentTarget.value })
     }
 
-    handleChangeBrand = (event) => {
+    handleChangeBrands = (event) => {
         this.setState({ brand: event.currentTarget.value })
     }
 
@@ -57,7 +57,7 @@ export class UploadProductPage extends brand {
         }
 
         const variables = {
-            writer: this.props.user.userData._id,
+          //  writer: this.props.user.userData._id,
             title: this.state.title,
             description: this.state.description,
             images: this.state.images,
@@ -113,13 +113,12 @@ export class UploadProductPage extends brand {
                     onChange={this.handleChangePrice}
                     value={this.state.price}
                 />
-                <br /><br />
-                <select onChange={this.handleChangeBrand}>
-                    {brand.map(item => (
+                <select onChange={this.handleChangeBrands}>
+                    {Brands.map(item => (
                         <option key={item.key} value={item.key}>{item.value}</option>
                     ))}
                 </select>
-                <br /><br />
+                <br /><br /> <br/>
 
                 <Button type="primary" size="large" onClick={this.onSubmit}>
                     Submit

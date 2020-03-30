@@ -6,7 +6,7 @@ import Axios from 'axios';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const brand = [
+const Brands = [
     { key: 1, value: "Samsung" },
     { key: 2, value: "Huawei" },
     { key: 3, value: "Oppo" },
@@ -38,7 +38,7 @@ function UploadProductPage(props) {
         setPriceValue(event.currentTarget.value)
     }
 
-    const onBrandSelectChange = (event) => {
+    const onBrandsSelectChange = (event) => {
         setBrandValue(event.currentTarget.value)
     }
 
@@ -51,11 +51,11 @@ function UploadProductPage(props) {
 
         if (!TitleValue || !DescriptionValue || !PriceValue ||
             !BrandValue || !Images) {
-            return alert('fill all the fields first!')
+            return message.error('fill all the fields first!', 1.5, onclose)
         }
 
         const variables = {
-            writer: props.user.userData._id,
+           // writer: props.user.userData._id,
             title: TitleValue,
             description: DescriptionValue,
             price: PriceValue,
@@ -104,14 +104,16 @@ function UploadProductPage(props) {
                     value={PriceValue}
                     type="number"
                 />
-                <br /><br />
-                <select onChange={onBrandSelectChange}>
-                    {brand.map(item => (
+                <select onChange={onBrandsSelectChange}>
+                    {Brands.map(item =>(
                         <option key={item.key} value={item.key}>{item.value} </option>
                     ))}
                 </select>
                 <br />
                 <br />
+                <br/>
+                
+
                <Button onClick={onSubmit} type="primary" >
                     Submit
                 </Button>

@@ -8,7 +8,7 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'
         }}>
-           <p> Happy Coding </p>
+           <p> © NIBM 2020.All rights reserved. </p>
            
         </div>
     )

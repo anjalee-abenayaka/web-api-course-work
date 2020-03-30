@@ -36,7 +36,8 @@ app.get("/api/users/auth", auth, (req,res) =>{
         lastname:req.user.lastname,
         role: req.user.role,
         cart: req.user.cart,//new
-        history: req.user.history//new
+        history: req.user.history,//new
+        image: req.user.image
 
     })
   
@@ -74,7 +75,9 @@ app.post('/api/users/login', (req, res) => {
         //generate token
         user.generateToken((err, user) =>{
             if(err) return res.status(400).send(err);
-            res.cookie("x_auth", user.token)
+            res.cookie("w_authExp", user.tokenExp);
+            res
+            .cookie("w_auth", user.token)
                .status(200)
                .json({
                    loginSuccess: true
