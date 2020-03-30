@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
-import About from "./about";
+//import About from "./about";
 //import Login from "./RegisterLogin";
 //import Register from "./RegisterLogin/register";
 import LoginPage from "./views/LoginPage/LoginPage";
@@ -17,6 +17,7 @@ import UploadProductPage from './views/UploadProductPage/UploadProductPage'
 import LandingPage from "./views/LandingPage/LandingPage";
 import DetailProductPage from './views/DetailProductPage/DetailProductPage';
 import CartPage from './views/CartPage/CartPage';
+import About from './about/About';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
          <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
          <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
          <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+         <Route exact path="/About" component={Auth(About, null)} />
        </Switch>
      </div>
      <Footer />
